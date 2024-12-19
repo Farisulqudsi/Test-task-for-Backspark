@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-socks-table
+      author: Ismail
+      changes:
+        - createTable:
+            tableName: socks
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: color
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cotton_part
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: add-not-null-constraints
+      author: Ismail
+      changes:
+        - addNotNullConstraint:
+            tableName: socks
+            columnName: color
+            columnDataType: VARCHAR(100)
+        - addNotNullConstraint:
+            tableName: socks
+            columnName: cotton_part
+            columnDataType: INTEGER
+        - addNotNullConstraint:
+            tableName: socks
+            columnName: quantity
+            columnDataType: INTEGER
